@@ -54,5 +54,3 @@ nbdist/
 
 ### local dev config file
 application-local.yml
-
-employeemgn/src/test/java/com/beyondsoft/rdc/cloud/iot/employeemanagement/maintenance/controller/MaintenanceControllerTest\.java
