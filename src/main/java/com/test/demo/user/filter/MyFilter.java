@@ -1,7 +1,7 @@
 package com.test.demo.user.filter;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -13,7 +13,7 @@ import java.util.Date;
  *
  *  缺点 :可以拿到http请求的原始信息,但是拿不到真正处理这个请求的方法信息
  */
-@Component
+//@Component
 @Slf4j
 public class MyFilter implements Filter {
     //@Override

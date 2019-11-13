@@ -92,6 +92,22 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!-- mysql数据库配置 end -->
+
+        <!-- thymeleaf  依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <version>3.0.2.RELEASE</version><!--$NO-MVN-MAN-VER$-->
+        </dependency>
+        <!-- security  依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
