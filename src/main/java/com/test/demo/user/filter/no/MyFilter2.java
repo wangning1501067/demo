@@ -1,7 +1,7 @@
 package com.test.demo.user.filter.no;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -11,7 +11,8 @@ import java.util.Date;
 /**
  *  过滤器 不需要配置
  */
-@Component
+//使用all文件，暂停此文件
+//@Component
 @Slf4j
 public class MyFilter2 implements Filter {
     @Override
