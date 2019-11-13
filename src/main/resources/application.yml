@@ -1,2 +1,35 @@
 server:
-  servlet-path: /
+  servlet:
+    servlet-path: /
+#设置端口号
+  port: ${PORT:8088}
+
+# logger
+logging:
+  config: classpath:logback.xml
+  #打印sql
+  level:
+    com:
+      test:
+        demo:
+          user:
+            mapper: debug # 改成你的mapper文件所在包路径
+
+### postgresql config ###
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://112.126.101.39:3306/test2?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: ssjz@2019
+    wait_timeout: 86400
+
+#mybatis数据库映射文件配置
+mybatis:
+  mapper-locations: classpath:mapping/**/*.xml
+  type-aliases-package: com.test.demo.*.model
+
+  #在控制台打印sql
+  #configuration:
+  #  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
