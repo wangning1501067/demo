@@ -24,32 +24,12 @@ spring:
     password: ssjz@2019
     wait_timeout: 86400
 
-  thymeleaf:
-    mode: HTML5
-    encoding: UTF-8
-    cache: false
-
-#springboot整合html
-  mvc:
-    view:
-      prefix: /templates/
-      suffix: html
-
 #mybatis数据库映射文件配置
 mybatis:
   mapper-locations: classpath:mapping/**/*.xml
   type-aliases-package: com.test.demo.*.model
 
   #在控制台打印sql
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-#security关闭验证
-#监控关闭
-security:
-  basic:
-    enabled: false
-management:
-  security:
-    enabled: false
+  #configuration:
+  #  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
