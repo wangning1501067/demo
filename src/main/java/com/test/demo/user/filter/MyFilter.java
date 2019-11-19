@@ -3,8 +3,6 @@ package com.test.demo.user.filter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
 import java.util.Date;
 
@@ -29,9 +27,9 @@ public class MyFilter implements Filter {
         System.out.println("time filter :"+(new Date().getTime()-time));
         System.out.println("time filter finish");
 
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        /*HttpServletRequest request = (HttpServletRequest) servletRequest;
         log.info("请求路径: [{}], 请求的全局id: [{}]", request.getServletPath());
-        filterChain.doFilter(new HttpServletRequestWrapper(request), servletResponse);
+        filterChain.doFilter(new HttpServletRequestWrapper(request), servletResponse);*/
     }
 
     @Override
