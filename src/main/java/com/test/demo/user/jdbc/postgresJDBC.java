@@ -69,9 +69,9 @@ public class postgresJDBC {
                     continue;
                 }
             }
-            /*if(flag){
+            if(!flag){
                 System.out.println(map.get("name")+"===>"+map.get("code"));
-            }*/
+            }
         }
     }
 }
