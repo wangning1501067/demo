@@ -15,13 +15,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value="/user-save")
+    @PostMapping(value = "/user-save")
     public Object userList(@RequestBody User user) {
         int i = this.userService.insert(user);
         return i;
     }
 
-    @GetMapping(value="/user-info/{id}")
+    @GetMapping(value = "/user-info/{id}")
     public Object getUserInfo(@PathVariable("id") Integer id) {
         User user = this.userService.selectByPrimaryKey(id);
         return user;
@@ -31,11 +31,11 @@ public class UserController {
     public Object index(HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         session.setAttribute("zxc", "zxc");
-        return  "index";
+        return "index";
     }
 
     @GetMapping("/online")
     public Object online() {
-        return  "当前在线人数：" + MyHttpSessionListener.online + "人";
+        return "当前在线人数：" + MyHttpSessionListener.online + "人";
     }
 }

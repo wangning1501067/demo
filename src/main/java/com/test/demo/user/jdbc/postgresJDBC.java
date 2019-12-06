@@ -12,11 +12,11 @@ public class postgresJDBC {
     /**
      * @param args
      */
-    public static List<Map<String, Object>> jdbc(String sql){
+    public static List<Map<String, Object>> jdbc(String sql) {
         ResultSet rs = null;
         List<Map<String, Object>> list = Lists.newArrayList();
 // TODO Auto-generated method stub
-        try{
+        try {
             Class.forName("org.postgresql.Driver").newInstance();
             String connectUrl ="jdbc:postgresql://192.168.7.153:5432/bys_iot";
             Connection conn = DriverManager.getConnection(connectUrl,"postgres","beyondsoft");
@@ -29,7 +29,7 @@ public class postgresJDBC {
             ResultSetMetaData md = rs.getMetaData(); //获得结果集结构信息,元数据
             int columnCount = md.getColumnCount();   //获得列数
             while (rs.next()) {
-                Map<String,Object> rowData = new HashMap<String,Object>();
+                Map<String, Object> rowData = new HashMap<String, Object>();
                 for (int i = 1; i <= columnCount; i++) {
                     rowData.put(md.getColumnName(i), rs.getObject(i));
                 }
@@ -39,7 +39,7 @@ public class postgresJDBC {
             rs.close();
             st.close();
             conn.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
@@ -134,23 +134,28 @@ public class postgresJDBC {
         List<Map<String, Object>> list2 = jdbc(sql2);
         System.out.println(list2);
 
-        for (Map map:list) {
+        for (Map map : list) {
             //System.out.println(map);
             boolean flag = false;
-            for (Map map2:list2) {
+            for (Map map2 : list2) {
                 //System.out.println(map);
-                if(map.get("name").equals(map2.get("AREA_NAME"))){
-                    flag=true;
-                    if(!map.get("code").toString().equals(map2.get("AREA_CODE").toString())){
-                        System.out.println(map.get("name")+"===>"+map.get("code")+"=============="+map2.get("AREA_NAME")+"===>"+map2.get("AREA_CODE"));
+                String s = map2.get("AREA_NAME").toString().trim();
+                System.out.println(s);
+                if (map2.get("AREA_NAME").toString().replaceAll(" ", "").equals("兴　县")) {
+                    System.out.println("111111111");
+                }
+                if (map.get("name").toString().trim().equals(map2.get("AREA_NAME").toString().trim())) {
+                    flag = true;
+                    if (!map.get("code").toString().trim().equals(map2.get("AREA_CODE").toString().trim())) {
+                        System.out.println(map.get("name") + "===>" + map.get("code") + "==============" + map2.get("AREA_NAME") + "===>" + map2.get("AREA_CODE"));
                         break;
                     }
-                }else{
+                } else {
                     continue;
                 }
             }
-            if(!flag){
-                System.out.println(map.get("name")+"===>"+map.get("code"));
+            if (!flag) {
+                System.out.println(map.get("name") + "===>" + map.get("code"));
             }
         }
     }

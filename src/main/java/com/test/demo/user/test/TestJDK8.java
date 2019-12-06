@@ -21,7 +21,7 @@ public class TestJDK8 {
         list.add("php");
         list.add("java");
         list.add("python");
-        list.stream().forEach(string ->{
+        list.stream().forEach(string -> {
             System.out.println(string);
         });
         System.out.println("======================================");
@@ -35,9 +35,9 @@ public class TestJDK8 {
         items.put("D", 40);
         items.put("E", 50);
         items.put("F", 60);
-        items.forEach((k,v)->System.out.println("Item=1 : " + k + " Count : " + v));
+        items.forEach((k, v) -> System.out.println("Item=1 : " + k + " Count : " + v));
         System.out.println("======================================");
-        items.forEach((k,v)-> {
+        items.forEach((k, v) -> {
             System.out.println("Item=2 : " + k + " Count : " + v);
         });
         System.out.println("======================================");
@@ -48,10 +48,10 @@ public class TestJDK8 {
         mapList.forEach(map1 -> { map1.forEach((k,v) -> { System.out.println(v); }); });*/
 
         List<Apple> appleList = Lists.newArrayList();//存放apple对象集合
-        Apple apple1 =  new Apple(1,"苹果1",new BigDecimal("3.25"),10);
-        Apple apple12 = new Apple(1,"苹果2",new BigDecimal("1.35"),20);
-        Apple apple2 =  new Apple(2,"香蕉",new BigDecimal("2.89"),30);
-        Apple apple3 =  new Apple(3,"荔枝",new BigDecimal("9.99"),40);
+        Apple apple1 = new Apple(1, "苹果1", new BigDecimal("3.25"), 10);
+        Apple apple12 = new Apple(1, "苹果2", new BigDecimal("1.35"), 20);
+        Apple apple2 = new Apple(2, "香蕉", new BigDecimal("2.89"), 30);
+        Apple apple3 = new Apple(3, "荔枝", new BigDecimal("9.99"), 40);
         appleList.add(apple1);
         appleList.add(apple12);
         appleList.add(apple2);
@@ -63,28 +63,28 @@ public class TestJDK8 {
          *  apple1,apple12的id都为1。
          *  可以用 (k1,k2)->k1 来设置，如果有重复的key,则保留key1,舍弃key2
          */
-        Map<Integer, Apple> appleMap = appleList.stream().collect(Collectors.toMap(Apple::getId, a -> a,(k1, k2)->k1));
-        System.out.println("==appleMap=="+appleMap.toString());
+        Map<Integer, Apple> appleMap = appleList.stream().collect(Collectors.toMap(Apple::getId, a -> a, (k1, k2) -> k1));
+        System.out.println("==appleMap==" + appleMap.toString());
         System.out.println("======================================");
 
         //List 以ID分组 Map<Integer,List<Apple>>
         Map<Integer, List<Apple>> groupBy = appleList.stream().collect(Collectors.groupingBy(Apple::getId));
-        System.err.println("groupBy:"+groupBy);
+        System.err.println("groupBy:" + groupBy);
         System.out.println("======================================");
 
         //过滤出符合条件的数据
         List<Apple> filterList = appleList.stream().filter(a -> a.getName().equals("香蕉")).collect(Collectors.toList());
-        System.err.println("filterList:"+filterList);
+        System.err.println("filterList:" + filterList);
         System.out.println("======================================");
 
         //计算 总金额
         BigDecimal totalMoney = appleList.stream().map(Apple::getMoney).reduce(BigDecimal.ZERO, BigDecimal::add);
-        System.err.println("totalMoney:"+totalMoney);  //totalMoney:17.48
+        System.err.println("totalMoney:" + totalMoney);  //totalMoney:17.48
         System.out.println("======================================");
 
         //计算 数量
         int sum = appleList.stream().mapToInt(Apple::getNum).sum();
-        System.err.println("sum:"+sum);  //sum:100
+        System.err.println("sum:" + sum);  //sum:100
         System.out.println("======================================");
 
         //List根据ID转MAP
@@ -93,32 +93,32 @@ public class TestJDK8 {
         appleList2.add(apple2);
         appleList2.add(apple3);
         Map<Integer, Apple> map2 = appleList2.stream().collect(Collectors.toMap(Apple::getId, apple -> apple));
-        System.out.println("==map2=="+map2.toString());
+        System.out.println("==map2==" + map2.toString());
         System.out.println("======================================");
 
         //对数字进行排序
-        List<Integer> nums = Arrays.asList(3,1,5,2,9,8,4,10,6,7);
+        List<Integer> nums = Arrays.asList(3, 1, 5, 2, 9, 8, 4, 10, 6, 7);
         nums.sort(Comparator.reverseOrder()); //reverseOrder倒序
-        System.err.println("倒序:"+nums);
+        System.err.println("倒序:" + nums);
         nums.sort(Comparator.naturalOrder()); //naturalOrder自然排序即：正序
-        System.err.println("正序:"+nums);
+        System.err.println("正序:" + nums);
         System.out.println("======================================");
 
         //根据价格排序
-        System.out.println("==appleList=="+appleList);
+        System.out.println("==appleList==" + appleList);
         List<Apple> breakDownVoList = appleList.stream().sorted(Comparator.comparing(Apple::getMoney)).collect(Collectors.toList());
-        System.out.println("==breakDownVoList=="+breakDownVoList);
+        System.out.println("==breakDownVoList==" + breakDownVoList);
         List<Apple> breakDownVoList2 = appleList.stream().sorted(Comparator.comparing(Apple::getMoney).reversed()).collect(Collectors.toList());
-        System.out.println("==breakDownVoList2=="+breakDownVoList2);
+        System.out.println("==breakDownVoList2==" + breakDownVoList2);
         System.out.println("======================================");
 
-        Arrays.asList( "a", "b", "d" ).forEach( e -> {
-            System.out.print( e );
+        Arrays.asList("a", "b", "d").forEach(e -> {
+            System.out.print(e);
         });
         System.out.println("======================================");
         String separator = ",";
-        Arrays.asList( "a", "b", "d" ).forEach(
-                ( String e ) -> System.out.print( e + separator ) );
+        Arrays.asList("a", "b", "d").forEach(
+                (String e) -> System.out.print(e + separator));
         System.out.println("======================================");
         /**
          * 筛选与切片
@@ -181,7 +181,7 @@ public class TestJDK8 {
         System.out.println("======================================");
         //自定义排序：先按姓名升序，姓名相同则按年龄升序
         List<Student> studentList2 = studentList.stream().sorted(Comparator.comparing(Student::getName).thenComparing(Student::getAge).reversed()).collect(Collectors.toList());
-        System.out.println("==studentList2=="+studentList2);
+        System.out.println("==studentList2==" + studentList2);
         System.out.println("======================================");
 
         /**
@@ -208,42 +208,42 @@ public class TestJDK8 {
          *         min：返回流中元素最小值
          */
         //求和
-        List<Integer> primes = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
-        IntSummaryStatistics stats = primes.stream().mapToInt(x->x).summaryStatistics();
+        List<Integer> primes = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        IntSummaryStatistics stats = primes.stream().mapToInt(x -> x).summaryStatistics();
         System.out.println("max : " + stats.getMax());
         System.out.println("min : " + stats.getMin());
         System.out.println("sum : " + stats.getSum());
         System.out.println("average : " + stats.getAverage());
 
         IntSummaryStatistics ageSummary = studentList.stream().collect(Collectors.summarizingInt(student -> student.getAge()));
-        System.out.println("==ageSummary=="+ageSummary);
+        System.out.println("==ageSummary==" + ageSummary);
 
         System.out.println("======================================");
         System.out.println("使用 Java 8: ");
-        List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+        List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
         long count = strings.size();
-        System.out.println("列表: " +strings);
-        count = strings.stream().filter(string->string.isEmpty()).count();
+        System.out.println("列表: " + strings);
+        count = strings.stream().filter(string -> string.isEmpty()).count();
         System.out.println("空字符串数量为: " + count);
 
         count = strings.stream().filter(string -> string.length() == 3).count();
         System.out.println("字符串长度为 3 的数量为: " + count);
 
-        List<String> filtered = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.toList());
+        List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
         System.out.println("筛选后的列表: " + filtered);
 
-        String mergedString = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.joining(", "));
+        String mergedString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
         System.out.println("合并字符串: " + mergedString);
-        mergedString = strings.stream().filter(string ->!string.isEmpty()).collect(Collectors.joining(", "));
+        mergedString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(", "));
         System.out.println("mergedString: " + mergedString);
 
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
-        List<Integer> squaresList = numbers.stream().map( i ->i*i).distinct().collect(Collectors.toList());
+        List<Integer> squaresList = numbers.stream().map(i -> i * i).distinct().collect(Collectors.toList());
         System.out.println("Squares List: " + squaresList);
-        List<Integer> integers = Arrays.asList(1,2,13,4,15,6,17,8,19);
-        System.out.println("列表: " +integers);
+        List<Integer> integers = Arrays.asList(1, 2, 13, 4, 15, 6, 17, 8, 19);
+        System.out.println("列表: " + integers);
 
-        IntSummaryStatistics stats2 = integers.stream().mapToInt((x) ->x).summaryStatistics();
+        IntSummaryStatistics stats2 = integers.stream().mapToInt((x) -> x).summaryStatistics();
 
         System.out.println("列表中最大的数 : " + stats2.getMax());
         System.out.println("列表中最小的数 : " + stats2.getMin());
@@ -266,6 +266,7 @@ class Apple {
     private String name;
     private BigDecimal money;
     private Integer num;
+
     public Apple(Integer id, String name, BigDecimal money, Integer num) {
         this.id = id;
         this.name = name;
@@ -278,6 +279,7 @@ class Apple {
 class Student {
     private String name;
     private Integer age;
+
     public Student(String name, Integer age) {
         this.name = name;
         this.age = age;
