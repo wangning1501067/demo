@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     /**
-     *  上下文对象
+     * 上下文对象
      */
     @Resource
     private ApplicationContext applicationContext;
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectByPrimaryKey(Integer id) {
         //通过上下文对象发布监听
-        applicationContext.publishEvent(new MyEvent(this,"监听到没"));
+        applicationContext.publishEvent(new MyEvent(this, "监听到没"));
         System.out.println("监听到没");
         return this.userMapper.selectByPrimaryKey(id);
     }

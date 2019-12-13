@@ -18,11 +18,13 @@ public class JiGuangConfig {
     @Value("${push.secret}")
     private String secret;
     private JPushClient jPushClient;
+
     // 推送客户端
     @PostConstruct
     public void initJPushClient() {
         jPushClient = new JPushClient(secret, appkey);
     }
+
     // 获取推送客户端
     public JPushClient getJPushClient() {
         return jPushClient;

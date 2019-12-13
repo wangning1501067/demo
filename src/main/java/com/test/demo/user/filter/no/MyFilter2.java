@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- *  过滤器 不需要配置
+ * 过滤器 不需要配置
  */
 //使用all文件，暂停此文件
 //@Component
@@ -24,8 +24,8 @@ public class MyFilter2 implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("time filter start");
         long time = new Date().getTime();
-        filterChain.doFilter(servletRequest,servletResponse);
-        System.out.println("time filter :"+(new Date().getTime()-time));
+        filterChain.doFilter(servletRequest, servletResponse);
+        System.out.println("time filter :" + (new Date().getTime() - time));
         System.out.println("time filter finish");
 
         HttpServletRequest request = (HttpServletRequest) servletRequest;

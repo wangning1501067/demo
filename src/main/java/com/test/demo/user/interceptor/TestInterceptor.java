@@ -14,18 +14,20 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 public class TestInterceptor implements HandlerInterceptor {
 
-    public TestInterceptor(){}
+    public TestInterceptor() {
+    }
 
     // 不验证URL anon：不验证/authc：受控制的
-    public static final String NO_INTERCEPTOR_PATH =".*/((.css)|(.js)|(images)|(login)|(anon)).*";
+    public static final String NO_INTERCEPTOR_PATH = ".*/((.css)|(.js)|(images)|(login)|(anon)).*";
 
     /**
      * 在请求处理之前进行调用（Controller方法调用之前）
-     *
+     * <p>
      * preHandle() 方法：该方法会在控制器方法前执行，其返回值表示是否中断后续操作。当其返回值为true时，表示继续向下执行；
      * 当其返回值为false时，会中断后续的所有操作（包括调用下一个拦截器和控制器类中的方法执行等）。
-     *
+     * <p>
      * 基于URL实现的拦截器
+     *
      * @param request
      * @param response
      * @param handler
@@ -51,6 +53,7 @@ public class TestInterceptor implements HandlerInterceptor {
 
     /**
      * postHandle()方法：该方法会在控制器方法调用之后，且解析视图之前执行。可以通过此方法对请求域中的模型和视图做出进一步的修改。
+     *
      * @param request
      * @param response
      * @param handler
@@ -62,12 +65,13 @@ public class TestInterceptor implements HandlerInterceptor {
 
     /**
      * afterCompletion()方法：该方法会在整个请求完成，即视图渲染结束之后执行。可以通过此方法实现一些资源清理、记录日志信息等工作。
+     *
      * @param request
      * @param response
      * @param handler
      * @param ex
      */
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)  {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         System.out.println("拦截器3");
     }
 

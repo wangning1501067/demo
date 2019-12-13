@@ -7,10 +7,11 @@ import org.springframework.stereotype.Component;
  * 测试用自定义监听器,监听事件为MyEvent
  */
 @Component
-public class MyLisenter implements ApplicationListener<MyEvent>{
+public class MyLisenter implements ApplicationListener<MyEvent> {
 
     /**
      * 对监听到的事件进行处理
+     *
      * @param myEvent
      */
     @Override

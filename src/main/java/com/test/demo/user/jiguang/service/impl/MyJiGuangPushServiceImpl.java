@@ -13,6 +13,7 @@ import com.test.demo.user.jiguang.service.MyJiGuangPushService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 /**
  * 极光推送
  * 封装第三方api相关
@@ -22,40 +23,46 @@ import org.springframework.stereotype.Service;
 public class MyJiGuangPushServiceImpl implements MyJiGuangPushService {
     @Autowired
     private JiGuangConfig jPushConfig;
+
     /**
      * 广播 (所有平台，所有设备, 不支持附加信息)
+     *
      * @param pushBean 推送内容
      * @return
      */
     @Override
-    public boolean pushAll(PushBean pushBean){
+    public boolean pushAll(PushBean pushBean) {
         return sendPush(PushPayload.newBuilder()
                 .setPlatform(Platform.all())
                 .setAudience(Audience.all())
                 .setNotification(Notification.alert(pushBean.getAlert()))
                 .build());
     }
+
     /**
      * ios广播
+     *
      * @param pushBean 推送内容
      * @return
      */
     @Override
-    public boolean pushIos(PushBean pushBean){
+    public boolean pushIos(PushBean pushBean) {
         return sendPush(PushPayload.newBuilder()
                 .setPlatform(Platform.ios())
                 .setAudience(Audience.all())
                 .setNotification(Notification.ios(pushBean.getAlert(), pushBean.getExtras()))
                 .build());
     }
+
     /**
      * ios通过registid推送 (一次推送最多 1000 个)
-     * @param pushBean 推送内容
+     *
+     * @param pushBean  推送内容
      * @param registids 推送id
      * @return
      */
     @Override
-    public boolean pushIos(PushBean pushBean, String... registids){
+    public boolean pushIos(PushBean pushBean, String... registids) {
         return sendPush(PushPayload.newBuilder()
                 .setPlatform(Platform.ios())
                 .setAudience(Audience.alias(registids))
@@ -65,8 +72,9 @@ public class MyJiGuangPushServiceImpl implements MyJiGuangPushService {
 
     /**
      * ios通过registid推送 (一次推送最多 1000 个)
+     *
      * @param pushBean 推送内容
-     * @param alias 推送id
+     * @param alias    推送id
      * @return
      */
     @Override
@@ -80,25 +88,28 @@ public class MyJiGuangPushServiceImpl implements MyJiGuangPushService {
 
     /**
      * android广播
+     *
      * @param pushBean 推送内容
      * @return
      */
     @Override
-    public boolean pushAndroid(PushBean pushBean){
+    public boolean pushAndroid(PushBean pushBean) {
         return sendPush(PushPayload.newBuilder()
                 .setPlatform(Platform.android())
                 .setAudience(Audience.all())
                 .setNotification(Notification.android(pushBean.getAlert(), pushBean.getTitle(), pushBean.getExtras()))
                 .build());
     }
+
     /**
      * android通过registid推送 (一次推送最多 1000 个)
-     * @param pushBean 推送内容
+     *
+     * @param pushBean  推送内容
      * @param registids 推送id
      * @return
      */
     @Override
-    public boolean pushAndroid(PushBean pushBean, String ... registids){
+    public boolean pushAndroid(PushBean pushBean, String... registids) {
         return sendPush(PushPayload.newBuilder()
                 .setPlatform(Platform.android())
                 .setAudience(Audience.registrationId(registids))
@@ -108,12 +119,13 @@ public class MyJiGuangPushServiceImpl implements MyJiGuangPushService {
 
     /**
      * android通过registid推送 (一次推送最多 1000 个)
+     *
      * @param pushBean 推送内容
-     * @param alias 推送id
+     * @param alias    推送id
      * @return
      */
     @Override
-    public boolean pushAndroidByAlias(PushBean pushBean, String... alias){
+    public boolean pushAndroidByAlias(PushBean pushBean, String... alias) {
         return sendPush(PushPayload.newBuilder()
                 .setPlatform(Platform.android())
                 .setAudience(Audience.alias(alias))
@@ -123,24 +135,25 @@ public class MyJiGuangPushServiceImpl implements MyJiGuangPushService {
 
     /**
      * 调用api推送
+     *
      * @param pushPayload 推送实体
      * @return
      */
     @Override
-    public boolean sendPush(PushPayload pushPayload){
+    public boolean sendPush(PushPayload pushPayload) {
         log.info("发送极光推送请求: {}", pushPayload);
         PushResult result = null;
-        try{
+        try {
             result = jPushConfig.getJPushClient().sendPush(pushPayload);
         } catch (APIConnectionException e) {
             log.error("极光推送连接异常: ", e);
         } catch (APIRequestException e) {
             log.error("极光推送请求异常: ", e);
         }
-        if (result!=null && result.isResultOK()) {
+        if (result != null && result.isResultOK()) {
             log.info("极光推送请求成功: {}", result);
             return true;
-        }else {
+        } else {
             log.info("极光推送请求失败: {}", result);
             return false;
         }

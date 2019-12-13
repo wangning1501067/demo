@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- *  过滤器         spring自己的可以用 component注解 来注入,如果是第三方就需要从新 通过 配置类来注入,config中
- *
- *  缺点 :可以拿到http请求的原始信息,但是拿不到真正处理这个请求的方法信息
+ * 过滤器         spring自己的可以用 component注解 来注入,如果是第三方就需要从新 通过 配置类来注入,config中
+ * <p>
+ * 缺点 :可以拿到http请求的原始信息,但是拿不到真正处理这个请求的方法信息
  */
 //@Component
 @Slf4j
@@ -23,8 +23,8 @@ public class MyFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("time filter start");
         long time = new Date().getTime();
-        filterChain.doFilter(servletRequest,servletResponse);
-        System.out.println("time filter :"+(new Date().getTime()-time));
+        filterChain.doFilter(servletRequest, servletResponse);
+        System.out.println("time filter :" + (new Date().getTime() - time));
         System.out.println("time filter finish");
 
         /*HttpServletRequest request = (HttpServletRequest) servletRequest;

@@ -1,6 +1,7 @@
 package com.test.demo.user.jiguang.model;
 
 import lombok.Data;
+
 import java.util.Map;
 
 /**
