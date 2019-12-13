@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TestJDK8 {
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         /**
          * stream() − 为集合创建串行流。
          * parallelStream() − 为集合创建并行流。
@@ -257,6 +257,32 @@ public class TestJDK8 {
         // 并行处理
         count = strings.parallelStream().filter(string -> string.isEmpty()).count();
         System.out.println("空字符串的数量为: " + count);
+
+
+        List<Apple> users = new ArrayList<Apple>();
+        users.add(null);
+        users.add(null);
+        users.add(null);
+        System.out.println("size:"+users.size()); //size:3
+        for(Apple user:users){
+            try {
+                System.out.println("id:" + user.getId() + ",name:" + user.getName());
+            }catch (Exception ex){
+                System.out.println(ex); //java.lang.NullPointerException
+            }
+        }
+        users.remove(null); //移除第一个null
+        System.out.println("size:"+users.size()); //size:2
+        users.removeAll(Collections.singleton(null)); //移除所有的null元素
+        System.out.println("size:"+users.size()); //size:0
+        //不会进入循环
+        for(Apple user:users){
+            try {
+                System.out.println("id:" + user.getId() + ",name:" + user.getName());
+            }catch (Exception ex){
+                System.out.println(ex);
+            }
+        }
     }
 }
 
