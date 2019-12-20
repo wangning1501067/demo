@@ -18,8 +18,8 @@ public class AsyncServiceImpl implements AsyncService {
 //直接使用@Async注解，并声明线程池，即可使用多线程；
     @Async("taskExecutor")
     @Override
-    public void executeAsync() {
-        logger.info("start executeAsync");
+    public void executeAsync(int i) {
+        logger.info("start executeAsync"+"========="+i);
         try {
             System.out.println("当前运行的线程名称：" + Thread.currentThread().getName());
             try {
@@ -30,7 +30,7 @@ public class AsyncServiceImpl implements AsyncService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        logger.info("end executeAsync");
+        logger.info("end executeAsync"+"========="+i);
     }
 
 }

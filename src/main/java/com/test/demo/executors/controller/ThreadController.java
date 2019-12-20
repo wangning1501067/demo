@@ -20,8 +20,8 @@ public class ThreadController {
     public String sss() {
 
         //调用service层的任务
-        for (int i = 0; i < 100; i++) {
-            asyncService.executeAsync();
+        for (int i = 0; i < 50; i++) {
+            asyncService.executeAsync(i);
 
             //getTest();
         }
