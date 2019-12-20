@@ -1,4 +1,4 @@
-package com.test.demo.user.executors;
+package com.test.demo.executors;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
