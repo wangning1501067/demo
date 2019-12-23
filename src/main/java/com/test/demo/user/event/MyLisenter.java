@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 测试用自定义监听器,监听事件为MyEvent
+ * @component就是说把这个类交给Spring管理
  */
 @Component
 public class MyLisenter implements ApplicationListener<MyEvent> {

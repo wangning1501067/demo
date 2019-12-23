@@ -13,4 +13,9 @@ public class User {
     private Integer age;
 
     private String sex;
+
+    public User(String name, String pass) {
+        this.name = name;
+        this.pass = pass;
+    }
 }
