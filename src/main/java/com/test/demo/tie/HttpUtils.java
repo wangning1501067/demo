@@ -188,6 +188,10 @@ public class HttpUtils {
 
             String str = jsonArray.getString(4);
             System.out.println(str);
+            /**
+             * 1.String[] strs=str.split(“[|]”);
+             * 2.String[] strs=str.split(“\|”);
+             */
             String[] strArray = str.split("[|]");
 
             /*for (int i = 0; i < strArray.length; i++) {
