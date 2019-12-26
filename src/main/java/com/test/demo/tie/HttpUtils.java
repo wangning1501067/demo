@@ -96,10 +96,8 @@ public class HttpUtils {
     /**
      * 发送POST请求
      *
-     * @param url
-     *            目的地址
-     * @param parameters
-     *            请求参数，Map类型。
+     * @param url 目的地址
+     * @param parameters 请求参数，Map类型。
      * @return 远程响应结果
      */
     public static String sendPost(String url, Map<String, String> parameters) {
