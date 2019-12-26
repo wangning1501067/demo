@@ -18,6 +18,10 @@ public class MyServletRequestListener implements ServletRequestListener {
 
     private static final Logger logger = LoggerFactory.getLogger(MyServletRequestListener.class);
 
+    /**
+     * 当用户请求到达、被初始化时触发该方法
+     * @param servletRequestEvent
+     */
     @Override
     public void requestInitialized(ServletRequestEvent servletRequestEvent) {
         HttpServletRequest request = (HttpServletRequest) servletRequestEvent.getServletRequest();
@@ -27,6 +31,10 @@ public class MyServletRequestListener implements ServletRequestListener {
         request.setAttribute("name", "倪升武");
     }
 
+    /**
+     * 当用户请求结束、被销毁时触发该方法
+     * @param servletRequestEvent
+     */
     @Override
     public void requestDestroyed(ServletRequestEvent servletRequestEvent) {
 
