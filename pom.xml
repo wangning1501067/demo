@@ -125,6 +125,19 @@
             <artifactId>amqp-client</artifactId>
             <version>5.7.3</version>
         </dependency>
+
+        <!--发送邮件-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!--发送邮件-->
     </dependencies>
 
     <build>
