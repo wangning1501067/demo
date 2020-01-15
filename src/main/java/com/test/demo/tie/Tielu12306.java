@@ -13,8 +13,6 @@ public class Tielu12306 {
             getMusic();
             SendQQMailUtil.sendMail();
         }
-
-
     }
 
     public static boolean getMain() {

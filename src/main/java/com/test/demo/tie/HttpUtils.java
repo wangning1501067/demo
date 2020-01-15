@@ -61,7 +61,7 @@ public class HttpUtils {
                     "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
 
             httpConn.setRequestProperty("Cookie",
-                    "JSESSIONID=32319E10A675E97142B58AF89F3CDCC2; tk=3PQ3pmL172_zAYczHHTOgt4uyhPPx6bVmr-ewhVonr_yVcpNijw1w0; BIGipServerpool_passport=334299658.50215.0000; route=9036359bb8a8a461c164a04f8f50b252; BIGipServerotn=854589962.64545.0000; _jc_save_fromDate=2020-01-21; _jc_save_fromStation=%u5317%u4EAC%2CBJP; _jc_save_toStation=%u5DE9%u4E49%2CGXF; _jc_save_wfdc_flag=dc; RAIL_EXPIRATION=1577635646898; RAIL_DEVICEID=j0WI0qWB0Alz5_qzgQFsnVfC5zU8D5TUDcn855VfeeHkSnNiVLyZX0d4x2IHyXgbpVQKOOjzrpn8Yk28YPgeI6q2a4S_i_rBXMIt32Q2L4fAmQGOo7ygntIJLocv9tND-oiGy9GToymQebqAfiK06fCMpHXW-8Db; __guid=14023341.3132580092183424500.1577340927295.0046; monitor_count=1; RAIL_EXPIRATION=1577647586628; RAIL_DEVICEID=VEytlnjTj3z4AQL1WHUzqBLxfBWJDo8t5KqyL5vrHSSydZL7ChGKIBbVhnNE_hT53bCBoFoszNtBuEg2b5JQ35yBs9NyrsutBvbryFmVCIeVFqpWYAiH5tKMp8QaUdUL_tgLijuZj0Bc25ZZvGPwnFvC_xbqQQJO; _jc_save_toDate=2019-12-26");
+                    "JSESSIONID=89EB378A8A15407630C3A044C54C4085; tk=wQfaFQ97EXKXPlWLGSXwYgAWQP0vaAnFxTVshC4mnsy604ZDy0w1w0; BIGipServerpool_passport=384631306.50215.0000; RAIL_EXPIRATION=1577943172642; RAIL_DEVICEID=sH7GXYfCoQHwj8kGfK18QKZLKosWftjfhWjj5cmpKYanhuIPO20wzwlQKlZ-JCZSR_Sno2K_T3yDJzAzoehPEIas1rL4ODGteG8C7BU86yL_HV4ahdlEqUWMyt-W9dno3LwOSvAngWpzNJz1d_1y7s16PU3b0eam; BIGipServerotn=602931722.50210.0000; route=c5c62a339e7744272a54643b3be5bf64; __guid=14023341.2900310517929217500.1577671085651.57; RAIL_EXPIRATION=1578009679103; RAIL_DEVICEID=kBIzLFDRCm7S8IyDRl0SDMWaTlyUU539pMVcg6fma-bY2jWlbYiUUYI4Dwi5NCUZH-jFpPPXYv2wlDs734dmZT7ElIuzHmsUkE1OxqLA6KxknXZE5wNegFMDrmPomxwRA7QQNpib9JdeGD_vmYjN4H05SLWA2UJG; _jc_save_fromStation=%u5317%u4EAC%2CBJP; _jc_save_toStation=%u5DE9%u4E49%2CGXF; _jc_save_fromDate=2020-01-21; _jc_save_toDate=2019-12-30; _jc_save_wfdc_flag=dc; monitor_count=6");
 
             // 建立实际的连接
             httpConn.connect();
@@ -170,7 +170,7 @@ public class HttpUtils {
 
     public static boolean getK819(){
         Map<String, String> parameters = new LinkedHashMap<String, String>();
-        parameters.put("leftTicketDTO.train_date", "2019-12-27");
+        parameters.put("leftTicketDTO.train_date", "2020-01-21");
         parameters.put("leftTicketDTO.from_station", "BJP");
         parameters.put("leftTicketDTO.to_station", "GXF");
         parameters.put("purpose_codes", "ADULT");
