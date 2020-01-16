@@ -64,4 +64,9 @@ push:
   appkey: b6501a07d9ea15aed6169107
   secret: 326240cbd1afb2cf7e696853
 
+# Mylistener==第三种加载监听器到spring容器里面
+context:
+  listener:
+    classes: com.test.demo.event.test4.Mylistener
+
 
