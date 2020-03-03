@@ -33,6 +33,7 @@ public class postgresJDBC2 {
                 }
             }
         }
+        
         fos.close();
         System.out.println("===============OK=============");
     }
