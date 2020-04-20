@@ -1,4 +1,4 @@
-package com.test.demo.executors.config;
+package com.test.demo.thread.config;
 
 
 import org.springframework.context.annotation.Bean;

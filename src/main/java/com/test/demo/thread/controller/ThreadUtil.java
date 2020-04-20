@@ -1,4 +1,4 @@
-package com.beyondsoft.box.user.controller;
+package com.test.demo.thread.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;

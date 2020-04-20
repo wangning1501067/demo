@@ -1,4 +1,4 @@
-package com.test.demo.executors.config;
+package com.test.demo.thread.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

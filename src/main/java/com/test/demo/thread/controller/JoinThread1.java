@@ -1,4 +1,4 @@
-package com.beyondsoft.box.user.controller;
+package com.test.demo.thread.controller;
 
 public   class  JoinThread1  extends  Thread
 {

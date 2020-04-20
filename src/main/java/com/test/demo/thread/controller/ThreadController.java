@@ -1,6 +1,6 @@
-package com.test.demo.executors.controller;
+package com.test.demo.thread.controller;
 
-import com.test.demo.executors.service.AsyncService;
+import com.test.demo.thread.service.AsyncService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

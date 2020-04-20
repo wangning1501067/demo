@@ -1,4 +1,4 @@
-package com.test.demo.executors.service;
+package com.test.demo.thread.service;
 
 
 /**

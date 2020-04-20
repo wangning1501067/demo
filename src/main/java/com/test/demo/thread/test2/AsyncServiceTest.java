@@ -1,4 +1,4 @@
-package com.test.demo.executors.test2;
+package com.test.demo.thread.test2;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
