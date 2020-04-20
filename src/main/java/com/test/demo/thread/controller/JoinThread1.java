@@ -22,6 +22,7 @@ public   class  JoinThread1  extends  Thread
             }
     }
 
+
     public   static   void  main(String[] args)  throws  Exception
     {
 
