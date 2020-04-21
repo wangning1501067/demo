@@ -1,6 +1,6 @@
 package com.test.demo.thread.controller;
 
-import com.beyondsoft.box.common.response.ObjectRestResponse;
+import com.test.demo.thread.response.ObjectRestResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
