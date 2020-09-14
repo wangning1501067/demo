@@ -9,6 +9,17 @@ public class User implements Serializable {
     private String nickname;
     private String gender;
 
+    public User() {
+    }
+
+    public User(String id, String username, String password, String nickname, String gender) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.gender = gender;
+    }
+
     public String getId() {
         return id;
     }
