@@ -1,4 +1,5 @@
-package com.test.demo.protocalBuffer.proto;
+
+
 
 
 option java_outer_classname = "PersonBean";
@@ -19,5 +20,5 @@ message Person {
         optional PhoneType type=2 [default=HOME];
     }
 
-    repeated PhoneNumber phone=4;
+    repeated PhoneNumber phone=4; //一个或者多个
 }
